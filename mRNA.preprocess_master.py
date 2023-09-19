@@ -62,10 +62,13 @@ pd.options.mode.chained_assignment = None  # default='warn
 aws_cred = "/home/%s/.aws/credentials" % usern
 
 
-prof = boto3.session.Session(profile_name = awsdata["aws_profile"])
+if os.path.isfile(aws_cred):
+	prof = boto3.session.Session(profile_name = awsdata["aws_profile"])
+else:
+	prof = boto3.session.Session()
 
 s3 = boto3.resource('s3', region_name= awsdata["aws_region"])
-s3_client = boto3.client('s3', region_name= awsdata["aws_region"])
+#s3_client = boto3.client('s3', region_name= awsdata["aws_region"])
 
 
 parser = argparse.ArgumentParser(description="""launches the mRNA-seq preprocessing pipeline""" )
