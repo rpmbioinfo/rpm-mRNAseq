@@ -285,25 +285,15 @@ samplesheet.to_csv(sampleOut, header = True, index_label = "sample", sep = ",")
 fasta = genome_dict[genome]["fasta"]
 gtf = genome_dict[genome]["gtf"]
 
-if usern = "ec2-user":
-	cmd = ["nextflow run nf-core/rnaseq \\" ,		
-		"--input ", sampleOut, " \\",
-		"--outdir " ,outputDir , " \\" ,
-		"--fasta " , fasta , " \\" ,
-		"--gtf ", gtf, " \\",
-		"-bg \\", 
-		"--aligner ", aligner,
-		"-c ", config]
-else:
-	cmd = ["nextflow run nf-core/rnaseq \\" ,		
-		"--input ", sampleOut, " \\",
-		"--outdir " ,outputDir , " \\" ,
-		"--fasta " , fasta , " \\" ,
-		"--gtf ", gtf, " \\",
-	       	"-profile docker " , "\\" ,
-		"-bg \\", 
-		"--aligner ", aligner,
-		"-c ", config]
+
+cmd = ["nextflow run nf-core/rnaseq \\" ,		
+	"--input ", sampleOut, " \\",
+	"--outdir " ,outputDir , " \\" ,
+	"--fasta " , fasta , " \\" ,
+	"--gtf ", gtf, " \\",
+	"-bg \\", 
+	"--aligner ", aligner,
+	"-c ", config]
 
 
 if email is not False:
