@@ -282,18 +282,29 @@ samplesheet.to_csv(sampleOut, header = True, index_label = "sample", sep = ",")
 
 
 # sampleBatch = re.sub(r'efs/', '', sampleOut)
+fasta = genome_dict[genome]["fasta"]
+gtf = genome_dict[genome]["gtf"]
 
-
-
-cmd = ["nextflow run nf-core/rnaseq \\" ,		
+if usern = "ec2-user":
+	cmd = ["nextflow run nf-core/rnaseq \\" ,		
 		"--input ", sampleOut, " \\",
 		"--outdir " ,outputDir , " \\" ,
-		"--genome " , genome , " \\" ,
-		"-profile docker " , "\\" ,
-		"-r 3.11.1", "\\ ",
+		"--fasta " , fasta , " \\" ,
+		"--gtf ", gtf, " \\",
 		"-bg \\", 
 		"--aligner ", aligner,
-		"-c conf/aws.config"]
+		"-c ", config]
+else:
+	cmd = ["nextflow run nf-core/rnaseq \\" ,		
+		"--input ", sampleOut, " \\",
+		"--outdir " ,outputDir , " \\" ,
+		"--fasta " , fasta , " \\" ,
+		"--gtf ", gtf, " \\",
+	       	"-profile docker " , "\\" ,
+		"-bg \\", 
+		"--aligner ", aligner,
+		"-c ", config]
+
 
 if email is not False:
 	cmd.extend(["\\", "-email ", email])
