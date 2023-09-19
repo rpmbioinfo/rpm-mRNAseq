@@ -117,6 +117,9 @@ aligner = args.aligner
 input_s3 = s3_check(inputDir, s3)
 output_s3 = s3_check(outputDir, s3)
 
+
+usr_log = getpass.getuser()
+
 # Verify if output is a S3 location
 if output_s3:
 	pass
