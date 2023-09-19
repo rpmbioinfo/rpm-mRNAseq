@@ -1,9 +1,9 @@
 ###                                            -*- Mode: Python -*-
 ###                                            -*- coding UTF-8 -*-
 ### mRNA.preprocess_master.py
-### Copyright 2021 RPM Bioinfo Solutions
+### Copyright 2023 RPM Bioinfo Solutions
 ### Author :  Adam-Nicolas Pelletier
-### Last modified On: 2020-09-30
+### Last modified On: 2023-09-19
 ### Version 1.01
 
 
@@ -20,6 +20,7 @@ import getpass
 import json
 from pathlib import Path
 from datetime import datetime
+import platform
 
 from flatten_dict import flatten
 from flatten_dict import unflatten
