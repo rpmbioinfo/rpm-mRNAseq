@@ -289,7 +289,7 @@ cmd_string = ('').join(cmd)
 
 screen_session = "mRNAseq_%s" % date_time
 
-screen_create = "screen -dmS %s" screen_session
+screen_create = "screen -dmS %s" % screen_session
 
 
 if dryrun is False:
