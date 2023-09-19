@@ -74,7 +74,7 @@ required.add_argument("-g", "--genome", required = True, choices=['GRCh38', 'GRC
 
 optional.add_argument("-e","--email" ,
 					help="[e]mail for notifications of pipeline status (optional) if NOT for the user. ")
-optional.add_argument("-a","--aligner" , default = "star_salmon", choices=['star_salmon', 'star_rsem', 'hisat2']
+optional.add_argument("-a","--aligner" , default = "star_salmon", choices=['star_salmon', 'star_rsem', 'hisat2'],
 					help="[a]lignment tool. Defaults to 'star_salmon' More details at 'https://nf-co.re/rnaseq/usage' ")
 optional.add_argument("--sampleglob" ,	
 					help="Glob to capture samplename (optional) ")
