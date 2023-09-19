@@ -299,10 +299,10 @@ cmd = ["nextflow run nf-core/rnaseq \\" ,
 
 
 if email is not False:
-	cmd.extend(["\\", "-email ", email])
+	cmd.extend([" \\", "-email ", email])
 
 if umi is True:
-	cmd.extend(["\\", "--with-umi "])
+	cmd.extend([" \\", "--with-umi "])
 
 cmd_string = ('').join(cmd)
 
