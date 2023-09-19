@@ -293,7 +293,6 @@ cmd = ["nextflow run nf-core/rnaseq \\" ,
 	"--outdir " ,outputDir , " \\" ,
 	"--fasta " , fasta , " \\" ,
 	"--gtf ", gtf, " \\",
-	"-bg \\", 
 	"--aligner ", aligner, " \\" ,
 	"-c ", config]
 
