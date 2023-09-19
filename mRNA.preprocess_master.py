@@ -311,8 +311,8 @@ screen_create = "screen -dmS %s" % screen_session
 if dryrun is False:
 	print("Launching Nexflow...")
 	os.system(screen_create)
-	print("Launching Nextflow mRNA-seq run in screen session %s") % screen_session
-	print("Check progress with 'screen -RD %s', and resume with CTRL+A followed by CTRL+D\n") % screen_session
+	print("Launching Nextflow mRNA-seq run in screen session %s" % screen_session)
+	print("Check progress with 'screen -RD %s', and resume with CTRL+A followed by CTRL+D\n" % screen_session) 
 	screen_cmd = "screen -S %s -X stuff '%s\n'" % (screen_session, cmd_string)
 	os.system(screen_cmd)
 else:
