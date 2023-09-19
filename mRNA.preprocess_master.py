@@ -294,7 +294,7 @@ cmd = ["nextflow run nf-core/rnaseq \\" ,
 	"--fasta " , fasta , " \\" ,
 	"--gtf ", gtf, " \\",
 	"-bg \\", 
-	"--aligner ", aligner,
+	"--aligner ", aligner, " \\" ,
 	"-c ", config]
 
 
