@@ -29,15 +29,20 @@ from aws_utils.s3_transfer import *
 
 ########################################################################################################################################################
 ############################################################## LOAD USER DATA ##########################################################################
-rootdir = "/home/ec2-user/user_data/"
-usr_log = getpass.getuser()
-if usr_log == "adampelletier":
-	rootdir = "/home/adampelletier/Documents/AWS_pipelines/nextflow/user_data/"
+amzn2_check = re.compile("amzn2")
+if re.search(amzn2_check, platform.release()):
+	usern = "ec2-user"
+else:
+	usern = getpass.getuser()
+
+rootdir = "/home/%s/user_data/" % usern
 
 
 awsdata = json.load(open(rootdir + "aws_settings.json"))
 usrdt = pd.read_csv(rootdir +"email.csv")
-
+genome_dict = json.load(open(rootdir + "genome_db.json"))
+default_config = "/home/%s/conf/aws.config" % usern
+config_help = "nextflow [c]onfiguration file. Defaults to the %s." % default_config
 
 ########################################################################################################################################################
 ########################################################################################################################################################
@@ -52,6 +57,10 @@ usrdt = pd.read_csv(rootdir +"email.csv")
 cwd = os.path.dirname(os.path.realpath(__file__))
 
 pd.options.mode.chained_assignment = None  # default='warn
+
+aws_cred = "/home/%s/.aws/credentials" % usern
+
+
 prof = boto3.session.Session(profile_name = awsdata["aws_profile"])
 
 s3 = boto3.resource('s3', region_name= awsdata["aws_region"])
