@@ -95,6 +95,8 @@ optional.add_argument("--with_umi", action="store_true",
 					help="Activates UMI deduplication mode. ")
 optional.add_argument("--dryrun", action="store_true",
 					help="Activates test mode, which does not launch on AWS Batch. Defaults to FALSE. Returns the Nextflow command.")
+optional.add_argument("--config", default = default_config,
+					help=config_help)
 
 
 args = parser.parse_args()
@@ -108,7 +110,7 @@ sglob = args.sampleglob
 dryrun = args.dryrun
 umi = args.with_umi
 aligner = args.aligner
-
+config = args.config
 
 ########################################################################################################################################################
 ########################################################################################################################################################
