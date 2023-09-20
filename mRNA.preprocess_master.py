@@ -242,7 +242,7 @@ samplefile = pd.DataFrame.from_dict({(i,j): sample_dict[i][j]
 									orient = 'index')
 samplefile = samplefile.reset_index(level = 1)
 samplefile = samplefile.drop(columns=["level_1"])
-samplefile["strandedness"] = "automatic"
+samplefile["strandedness"] = "auto"
 
 samplesheet = samplefile.copy(deep = True)
 samplefile["location"] = samplefile["R1"]
